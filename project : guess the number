@@ -1,0 +1,52 @@
+How to generate a random number in C
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+int number;
+srand(time(0));
+number = rand();
+printf("The random number generated is %d.", number);
+return 0;
+}
+
+
+Problem
+This is going to be fun
+We will write a program that generates a random number and
+asks the player to guess it. If the player's guess 
+is higher than the actual number the program 
+displays "Lower Number Please". Similarly if the
+user's guess is too low the program prints "Higher 
+Number Please".
+When the user guesses the correct number, the 
+program displays the number of guesses the player
+used to arrive at the number.
+
+
+{   
+    int number, guess, nguesses;
+    srand(time(0));
+    number = rand()%100+1;
+    printf("The random number is %d \n", number);
+    do{
+        printf("Guess the number between 1 to 100.\n");
+        scanf("%d", &guess);
+        if(guess<number){
+            printf("Higher Number Pls\n");
+        }
+        else if(guess>number){
+            printf("Lower Number Pls\n");
+        }
+        else{
+            printf("You guessed it in %d attempts.\n", nguesses);
+        }
+        nguesses++;
+    }
+        while(guess!=number);
+    
+
+    return 0;
+}
+
